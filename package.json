@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.12",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.8",
     "next": "^16.0.7",
-    "react": "^19",
+    "react": "^19.2.1",
     "react-bootstrap": "^2.10.10",
-    "react-dom": "19",
-    "react-query": "^3.39.3"
+    "react-dom": "19"
   },
   "devDependencies": {
     "@types/node": "^20",
