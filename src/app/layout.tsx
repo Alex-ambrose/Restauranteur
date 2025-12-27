@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Nav, Navbar, NavbarBrand, NavbarCollapse, NavbarToggle } from "react-bootstrap";
 import Link from "next/link";
 import TanstackProvider from "./tanstackProvider";
+import MyNavbar from "./components/MyNavbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,22 +33,7 @@ export default function RootLayout({
         
       >
         <TanstackProvider>
-          <Navbar expand="sm" className="bg-body-tertiary">
-            <Container>
-              <NavbarBrand>Resturanteur</NavbarBrand>
-              <NavbarToggle aria-controls="basic-navbar-nav" />
-              <NavbarCollapse>
-                <Nav className="me-auto">
-                    <Link href={"/"} className="text-black nav-link">
-                      Home
-                    </Link>
-                    <Link href={"/login"} className="text-black nav-link">
-                      login
-                    </Link>
-                </Nav>
-              </NavbarCollapse>
-            </Container>
-          </Navbar>
+          <MyNavbar/>
           {children}
         </TanstackProvider>
       </body>
