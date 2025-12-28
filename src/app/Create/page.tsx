@@ -1,44 +1,60 @@
 'use client';
+import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 import { Button, Form, FormControl, FormLabel, FormText } from "react-bootstrap";
 type CreateResturantDTO = {
-    Name : string,
-    Loction: string,
-    Hours: string,
-    Type: number
+    Name: string,
+    Description: string,
+    Address: string,
+    Cuisine: number,
+    Hours: string
 }
+
 export default function CreateResturant() {
+    const APIURL = "http://localhost:7227/create"
     const [Name, setName] = useState<string>("")
-    const [Location, setLocation] = useState<string>("")
+    const [Description, setdescription] = useState<string>("")
+    const [Address, setaddress] = useState<string>("")
     const [Hours, setHours] = useState<string>("")
-    const [Type, setType] = useState<number>(0)
-    function OnCreateRestruant()
-    {
+    const [Cuisine, setcuisine] = useState<number>(0)
+    function OnCreateRestruant() {
         var DTO: CreateResturantDTO = {
-            Name : Name,
-            Loction : Location,
-            Hours : Hours,
-            Type : Type
+            Name: Name,
+            Description: Description,
+            Address: Address,
+            Cuisine: Cuisine,
+            Hours: Hours,
         }
         console.log(JSON.stringify(DTO))
+        axios.post(APIURL, DTO)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     return (
         <Form onSubmit={OnCreateRestruant}>
             <div className="mb-3">
                 <FormLabel>ResturantName</FormLabel>
-                <FormControl type="text" placeholder="Resturant name" value ={Name} onChange={e => setName(e.target.value)}/>
+                <FormControl type="text" placeholder="Resturant name" value={Name} onChange={e => setName(e.target.value)} />
             </div>
             <div className="mb-3" >
-                <FormLabel>Location</FormLabel>
-                <FormControl type="text" placeholder="123 N st" value ={Location} onChange={e => setLocation(e.target.value)}/>
+                <FormLabel>Address</FormLabel>
+                <FormControl type="text" placeholder="123 N st" value={Address} onChange={e => setaddress(e.target.value)} />
+            </div>
+            <div className="mb-3" >
+                <FormLabel>Discription</FormLabel>
+                <FormControl type="text" placeholder="123 N st" value={Description} onChange={e => setdescription(e.target.value)} />
             </div>
 
             <div className="mb-3" >
                 <FormLabel>hours</FormLabel>
-                <FormControl type="text" placeholder="8am-5pm" value ={Hours} onChange={e => setHours(e.target.value)}/>
+                <FormControl type="text" placeholder="8am-5pm" value={Hours} onChange={e => setHours(e.target.value)} />
             </div>
-            <Form.Select aria-label="Default select example"value ={Type} onChange={e => setType(parseInt(e.target.value))}>
+            <Form.Select aria-label="Default select example" value={Cuisine} onChange={e => setcuisine(parseInt(e.target.value))}>
                 <option>Open this select menu</option>
                 <option value="1">american</option>
                 <option value="2">mexican</option>
@@ -48,7 +64,7 @@ export default function CreateResturant() {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
-            
+
         </Form>
 
     );
