@@ -5,7 +5,7 @@ export default function MyNavbar() {
     return (
         <Navbar expand="sm" className="bg-body-tertiary">
             <Container>
-                <NavbarBrand>Resturanteur</NavbarBrand>
+                <NavbarBrand>Restauranteur</NavbarBrand>
                 <NavbarToggle aria-controls="basic-navbar-nav" />
                 <NavbarCollapse>
                     <Nav className="me-auto">

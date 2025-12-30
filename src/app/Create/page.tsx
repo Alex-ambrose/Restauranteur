@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 import { Button, Form, FormControl, FormLabel, FormText } from "react-bootstrap";
-type CreateResturantDTO = {
+type CreateRestaurantDTO = {
     Name: string,
     Description: string,
     Address: string,
@@ -11,7 +11,7 @@ type CreateResturantDTO = {
     Hours: string
 }
 
-export default function CreateResturant() {
+export default function CreateRestaurant() {
     const APIURL = "http://localhost:7227/create"
     const [Name, setName] = useState<string>("")
     const [Description, setdescription] = useState<string>("")
@@ -19,7 +19,7 @@ export default function CreateResturant() {
     const [Hours, setHours] = useState<string>("")
     const [Cuisine, setcuisine] = useState<number>(0)
     function OnCreateRestruant() {
-        var DTO: CreateResturantDTO = {
+        var DTO: CreateRestaurantDTO = {
             Name: Name,
             Description: Description,
             Address: Address,
@@ -38,8 +38,8 @@ export default function CreateResturant() {
     return (
         <Form onSubmit={OnCreateRestruant}>
             <div className="mb-3">
-                <FormLabel>ResturantName</FormLabel>
-                <FormControl type="text" placeholder="Resturant name" value={Name} onChange={e => setName(e.target.value)} />
+                <FormLabel>RestaurantName</FormLabel>
+                <FormControl type="text" placeholder="Restaurant name" value={Name} onChange={e => setName(e.target.value)} />
             </div>
             <div className="mb-3" >
                 <FormLabel>Address</FormLabel>
