@@ -4,24 +4,22 @@ import { RestaurantDTO } from "../page";
 import Link from "next/link";
 
 type RestCardProps = {
-    Restraunt : RestaurantDTO
-    
-    
+  Restraunt: RestaurantDTO
 }
-export default function RestCard(props:RestCardProps) {
-    return (
-        <Card style={{ width: '18rem' }}>
+export default function RestCard({ Restraunt }: RestCardProps) {
+  return (
+    <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
-        <Card.Title>{props.Restraunt.name}</Card.Title>
+        <Card.Title>{Restraunt.name}</Card.Title>
         <Card.Text>
-          {props.Restraunt.description}
-          {/* {props.Restraunt.Cuisine} */}
+          {Restraunt.description}
+          {/* {Restraunt.Cuisine} */}
         </Card.Text>
         <Button variant="primary">
-          <Link href={`/Restaurant/${props.Restraunt.id}`} className="text-black nav-link">{props.Restraunt.name}</Link>
+          <Link href={`/Restaurant/${Restraunt.id}`} className="text-black nav-link">{Restraunt.name}</Link>
         </Button>
       </Card.Body>
     </Card>
-    );
+  );
 }
