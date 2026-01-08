@@ -15,6 +15,11 @@ export default function MyNavbar() {
                         <Link href={"/login"} className="text-black nav-link">
                             login
                         </Link>
+                        <Link href={"/Create"} className="text-black nav-link">
+                            Create
+                        </Link>
+                        
+                    
                     </Nav>
                 </NavbarCollapse>
             </Container>

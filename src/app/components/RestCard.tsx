@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button, Card } from "react-bootstrap";
 import { RestaurantDTO } from "../page";
+import Link from "next/link";
 
 type RestCardProps = {
     Restraunt : RestaurantDTO
@@ -17,7 +18,9 @@ export default function RestCard(props:RestCardProps) {
           {props.Restraunt.description}
           {/* {props.Restraunt.Cuisine} */}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">
+          <Link href={`/Restaurant/${props.Restraunt.id}`} className="text-black nav-link">{props.Restraunt.name}</Link>
+        </Button>
       </Card.Body>
     </Card>
     );
